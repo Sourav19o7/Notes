@@ -2,6 +2,7 @@ package com.example.notes
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -41,11 +42,15 @@ class MainActivity : AppCompatActivity(), INotesRVAdapter {
     }
 
     fun submitData(view: View) {
-        val noteText = findViewById<TextView>(R.id.text).text.toString()
+        Log.i("Failure", "45")
+        val noteText = findViewById<TextView>(R.id.input).text.toString()
+        Log.i("Failure", "47")
         if(noteText.isNotEmpty())
         {
+            Log.i("Failure", "50")
             viewModel.insertNote(Note(noteText))
             Toast.makeText(this, "Inserted", Toast.LENGTH_LONG).show()
+            findViewById<TextView>(R.id.input).text = ""
         }
     }
 }

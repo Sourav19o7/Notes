@@ -7,10 +7,10 @@ import androidx.room.*
 interface NoteDAO {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(note : Note)
+    fun insert(note : Note)
 
     @Delete
-    suspend fun delete(note : Note)
+    fun delete(note : Note)
 
     @Query("Select * from NOTES_TABLE order by id ASC")
     fun getAllNotes() : LiveData<List<Note>>
